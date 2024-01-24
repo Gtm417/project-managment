@@ -1,0 +1,67 @@
+PUT users
+{
+  "settings": {
+    "analysis": {
+      "normalizer": {
+        "my_normalizer": {
+          "type": "custom",
+          "char_filter": [],
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "cv": {
+        "type": "text"
+      },
+      "description": {
+        "type": "text"
+      },
+      "email": {
+        "type": "keyword",
+            "normalizer": "my_normalizer"
+      },
+      "firstName": {
+        "type": "keyword",
+            "normalizer": "my_normalizer"
+      },
+      "id": {
+        "type": "long"
+      },
+      "lastName": {
+        "type": "keyword",
+            "normalizer": "my_normalizer"
+      },
+      "password": {
+        "type": "keyword"
+      },
+      "role": {
+        "type": "keyword"
+      },
+      "skills": {
+        "type": "nested",
+        "properties": {
+          "expertise": {
+            "type": "keyword",
+            "normalizer": "my_normalizer"
+          },
+          "skillName": {
+            "type": "keyword",
+            "normalizer": "my_normalizer"
+          }
+        }
+      },
+      "status": {
+        "type": "keyword"
+      },
+      "type": {
+        "type": "keyword"
+      }
+    }
+  }
+}

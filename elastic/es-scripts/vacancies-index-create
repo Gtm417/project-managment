@@ -1,0 +1,21 @@
+PUT vacancies
+{
+"mappings": {
+  "properties": {
+    "id":
+     { "type": "long"},
+    "projectId":
+      {"type": "long"},
+    "creator":
+     { "type": "keyword"},
+     "description":
+     {"type":"text"},
+     "aboutProject":
+     {"type":"text"},
+     "expected":
+     {"type": "text"},
+     "jobPosition":
+     {"type":"text"}
+  }
+}
+}
